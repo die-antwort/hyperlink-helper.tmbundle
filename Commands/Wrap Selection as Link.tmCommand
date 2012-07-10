@@ -36,8 +36,8 @@ def make_link(text)
   end
 end
 
-url = make_link %x{pbpaste}.strip
-
+input = STDIN.read
+url = make_link input.strip
 title = nil
 
 if url =~ /^https?:\/\// and url != 'http://example.com/'
@@ -51,7 +51,6 @@ if url =~ /^https?:\/\// and url != 'http://example.com/'
   end
 end
 
-input = STDIN.read
 print ERB.new(ENV['TM_LINK_FORMAT']).result
 </string>
 	<key>fallbackInput</key>
