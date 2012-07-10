@@ -34,13 +34,13 @@ def make_link(text)
   end
 end
 
-url = make_link %x{__CF_USER_TEXT_ENCODING=$UID:0x8000100:0x8000100 pbpaste}.strip
+input = STDIN.read
+url= make_link input.strip
 
 if url =~ /^http:\/\// and url != 'http://example.com/'
   eval 'title = fp.read.match(/&lt;title&gt;([^&lt;&gt;]*)&lt;\/title&gt;/i).to_a[1].strip rescue nil' if fp = open(url) rescue nil
 end
 
-input = STDIN.read
 print ERB.new(ENV['TM_LINK_FORMAT']).result
 </string>
 	<key>fallbackInput</key>
