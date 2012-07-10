@@ -40,17 +40,6 @@ input = STDIN.read
 url = make_link input.strip
 title = nil
 
-if url =~ /^https?:\/\// and url != 'http://example.com/'
-  begin
-    Timeout.timeout(4) do
-      fp = open(url) rescue nil
-      title = fp.read.match(/&lt;title&gt;([^&lt;&gt;]*)&lt;\/title&gt;/i).to_a[1].strip rescue nil
-    end
-  rescue Timeout::Error
-    # Error out on large downloads or during slow network access
-  end
-end
-
 print ERB.new(ENV['TM_LINK_FORMAT']).result
 </string>
 	<key>fallbackInput</key>
