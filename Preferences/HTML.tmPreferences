@@ -4,8 +4,6 @@
 <dict>
 	<key>name</key>
 	<string>HTML</string>
-	<key>scope</key>
-	<string>text.html</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
